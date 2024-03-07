@@ -1,4 +1,5 @@
 ﻿@page "/post"
+@attribute [StreamRendering]
 
 <PageTitle>Post</PageTitle>
 
@@ -25,7 +26,14 @@
             <InputTextArea @bind-Value="Comment.Comment" class="form-control" />
         </div>
         <div class="mb-2">
-            <button type="submit" class="btn btn-primary">Submit!</button>
+            @if (addingComment)
+            {
+                <p>posting your comment...</p>
+            }
+            else
+            {
+                <button type="submit" class="btn btn-primary">Submit!</button>
+            }
         </div>
     </form>
 </div>
@@ -52,19 +60,26 @@
 
 
 @code {
-    //[SupplyParameterFromForm]
+    [SupplyParameterFromForm]
     public CommentViewModel Comment { get; set; } = new();
+
+    private bool addingComment = false;
 
     private List<CommentViewModel> comments = [];
 
-    private void AddComment()
+    private async Task AddComment()
     {
+        addingComment = true;
+
         try
         {
+            await Task.Delay(2000);
+
             comments.Add(Comment);
         }
         finally
         {
+            addingComment = false;
             Comment = new();
         }
     }
