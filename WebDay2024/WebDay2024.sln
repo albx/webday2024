@@ -3,9 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.9.34622.214
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebDay2024", "WebDay2024\WebDay2024\WebDay2024.csproj", "{F653167A-980D-4F2E-9D71-EF537457C3C5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebDay2024", "WebDay2024\WebDay2024\WebDay2024.csproj", "{F653167A-980D-4F2E-9D71-EF537457C3C5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebDay2024.Client", "WebDay2024\WebDay2024.Client\WebDay2024.Client.csproj", "{84CD8AEC-210E-4161-9839-AFAC3F8B03DB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebDay2024.Client", "WebDay2024\WebDay2024.Client\WebDay2024.Client.csproj", "{84CD8AEC-210E-4161-9839-AFAC3F8B03DB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebDay2024.Models", "WebDay2024.Models\WebDay2024.Models.csproj", "{03069562-D62A-49AB-B5DF-1E93577CADD4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{84CD8AEC-210E-4161-9839-AFAC3F8B03DB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{84CD8AEC-210E-4161-9839-AFAC3F8B03DB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{84CD8AEC-210E-4161-9839-AFAC3F8B03DB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{03069562-D62A-49AB-B5DF-1E93577CADD4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{03069562-D62A-49AB-B5DF-1E93577CADD4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{03069562-D62A-49AB-B5DF-1E93577CADD4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{03069562-D62A-49AB-B5DF-1E93577CADD4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

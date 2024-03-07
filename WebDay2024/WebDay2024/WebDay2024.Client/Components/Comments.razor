@@ -1,0 +1,78 @@
+﻿@inject WebDay2024.Client.Services.ICommentsService CommentsService
+
+<div class="row">
+    <EditForm OnValidSubmit="AddCommentAsync" Model="comment">
+        <DataAnnotationsValidator />
+
+        <div class="mb-2">
+            <label>Author</label>
+            <InputText @bind-Value="comment.Author" class="form-control" />
+            <ValidationMessage For="@(() => comment.Author)" class="text-danger" />
+        </div>
+        <div class="mb-2">
+            <label>Comment</label>
+            <InputTextArea @bind-Value="comment.Comment" class="form-control" />
+            <ValidationMessage For="@(() => comment.Comment)" class="text-danger" />
+        </div>
+        <div class="mb-2">
+            @if (addingComment)
+            {
+                <p>posting your comment...</p>
+            }
+            else
+            {
+                <button type="submit" class="btn btn-primary">Submit!</button>
+            }
+        </div>
+    </EditForm>
+</div>
+
+@if (comments.Any())
+{
+    <div class="row">
+        @foreach (var item in comments)
+        {
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header">
+                        @item.Author
+                    </div>
+                    <div class="card-body">
+                        <p class="card-text">@item.Comment</p>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+}
+
+@code {
+    private CommentModel comment = new();
+
+    private CommentModel[] comments = [];
+
+    private bool addingComment = false;
+
+    protected override async Task OnInitializedAsync()
+    {
+        comments = await CommentsService.GetCommentsAsync();
+    }
+
+    private async Task AddCommentAsync()
+    {
+        addingComment = true;
+
+        try
+        {
+            await Task.Delay(2000);
+            await CommentsService.AddCommentAsync(comment);
+
+            comments = await CommentsService.GetCommentsAsync();
+        }
+        finally
+        {
+            comment = new();
+            addingComment = false;
+        }
+    }
+}
